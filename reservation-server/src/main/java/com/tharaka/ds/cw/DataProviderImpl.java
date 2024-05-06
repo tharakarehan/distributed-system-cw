@@ -2,6 +2,7 @@ package com.tharaka.ds.cw;
 
 import common.tharaka.ds.cw.communication.grpc.generated.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
@@ -41,12 +42,19 @@ public class DataProviderImpl implements DataProvider {
     }
 
     @Override
+    public Item getItem(String itemId) {
+        return items.get(itemId);
+    }
+    @Override
     public List<Item> getItemsBySellerName(String name) {
         return items.values().stream().filter(item -> name.equals(item.getSellerName())).collect(Collectors.toList());
     }
 
     @Override
     public List<ItemDTO> getAllItems(String name) {
+        if (!isUserExist(name)) {
+            return new ArrayList<>();
+        }
         return items.values().stream().map(item -> ItemDTO.newBuilder()
                 .setItemId(item.getItemId())
                 .setSellerName(item.getSellerName())
@@ -63,7 +71,18 @@ public class DataProviderImpl implements DataProvider {
     }
 
     @Override
-    public void addReservation(Reservation reservation) {
+    public void addReservation(ReserveRequest reserveRequest) {
+        Item item = items.get(reserveRequest.getItemId());
+        Reservation reservation = Reservation.newBuilder()
+                .setReservationId(reserveRequest.getReservationId())
+                .setItemId(reserveRequest.getItemId())
+                .setItemName(item.getItemName())
+                .setBuyerName(reserveRequest.getBuyerName())
+                .setQuantity(reserveRequest.getQuantity())
+                .setSellerName(item.getSellerName())
+                .setPaymentAmount(item.getPrice() * reserveRequest.getQuantity())
+                .setReservationDate(reserveRequest.getReservationDate())
+                .build();
         reservations.put(reservation.getReservationId(), reservation);
     }
 
@@ -93,5 +112,13 @@ public class DataProviderImpl implements DataProvider {
     @Override
     public User getUser(String username) {
         return users.get(username);
+    }
+
+    public void updateItemQuantities(String itemId, int quantity) {
+        Item item = items.get(itemId);
+        item.toBuilder()
+                .setAvailableQuantity(item.getAvailableQuantity() - quantity)
+                .setReservedQuantity(item.getReservedQuantity() + quantity)
+                .build();
     }
 }

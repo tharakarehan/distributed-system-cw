@@ -130,7 +130,6 @@ public class ItemAddServiceImpl extends ItemAddServiceGrpc.ItemAddServiceImplBas
             return false;
         }
         User seller = dataProvider.getUser(request.getSellerName());
-        System.out.println("Seller Role: " + seller.getRole() + " Request Type: " + request.getType());
         if ((seller.getRole() == Role.INVENTORY_CLERK && request.getType() != Type.NEW_ARRIVAL)
         || (seller.getRole() != Role.INVENTORY_CLERK && request.getType() == Type.NEW_ARRIVAL)) {
             statusMessage = "User has conflicting role";

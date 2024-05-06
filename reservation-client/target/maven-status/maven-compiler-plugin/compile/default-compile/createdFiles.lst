@@ -48,6 +48,7 @@ common/tharaka/ds/cw/communication/grpc/generated/ReserveServiceGrpc$ReserveServ
 common/tharaka/ds/cw/communication/grpc/generated/Reservation$1.class
 common/tharaka/ds/cw/communication/grpc/generated/Type$1.class
 common/tharaka/ds/cw/communication/grpc/generated/ItemSearchServiceGrpc$ItemSearchServiceBlockingStub.class
+com/tharaka/ds/cw/ReservationServiceClient.class
 common/tharaka/ds/cw/communication/grpc/generated/User$Builder.class
 common/tharaka/ds/cw/communication/grpc/generated/ItemDeleteRequest$Builder.class
 common/tharaka/ds/cw/communication/grpc/generated/ItemDeleteServiceGrpc$ItemDeleteServiceMethodDescriptorSupplier.class
@@ -64,6 +65,7 @@ common/tharaka/ds/cw/communication/grpc/generated/ItemAddServiceGrpc$MethodHandl
 common/tharaka/ds/cw/communication/grpc/generated/StatusResponse.class
 common/tharaka/ds/cw/communication/grpc/generated/ItemUpdateServiceGrpc$2.class
 common/tharaka/ds/cw/communication/grpc/generated/ItemAddServiceGrpc$ItemAddServiceBlockingStub.class
+com/tharaka/ds/cw/utils/PrintUtils.class
 common/tharaka/ds/cw/communication/grpc/generated/UserAddServiceGrpc$UserAddServiceFileDescriptorSupplier.class
 common/tharaka/ds/cw/communication/grpc/generated/ReservationGetServiceGrpc$ReservationGetServiceStub.class
 common/tharaka/ds/cw/communication/grpc/generated/ReservationGetServiceGrpc$ReservationGetServiceMethodDescriptorSupplier.class
@@ -135,8 +137,10 @@ common/tharaka/ds/cw/communication/grpc/generated/ItemAddRequestOrBuilder.class
 common/tharaka/ds/cw/communication/grpc/generated/Reservation.class
 common/tharaka/ds/cw/communication/grpc/generated/StatusResponse$1.class
 common/tharaka/ds/cw/communication/grpc/generated/ItemDeleteServiceGrpc$ItemDeleteServiceStub.class
+com/tharaka/ds/cw/ItemGetAllServiceClient.class
 common/tharaka/ds/cw/communication/grpc/generated/ItemSearchServiceGrpc$3.class
 common/tharaka/ds/cw/communication/grpc/generated/UserAddServiceGrpc$3.class
+com/tharaka/ds/cw/ReservationGetServiceClient.class
 common/tharaka/ds/cw/communication/grpc/generated/ItemAddServiceGrpc$1.class
 common/tharaka/ds/cw/communication/grpc/generated/ItemDeleteServiceGrpc$3.class
 common/tharaka/ds/cw/communication/grpc/generated/ItemUpdateRequest$1.class
